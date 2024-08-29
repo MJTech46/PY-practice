@@ -1,6 +1,7 @@
 from zipfile import ZipFile, BadZipFile
 from string import ascii_letters, digits
 import itertools
+from time import time
 
 def unlock_zip(file_name, max_length=8):
     """
@@ -23,4 +24,9 @@ def unlock_zip(file_name, max_length=8):
         print("Password not found within the given length limit.")
 
 # Usage
+start_time = time()
 unlock_zip("protected.zip")
+end_time = time()
+
+execution_time = (end_time - start_time) * 1000  # Convert to milliseconds
+print(execution_time)
