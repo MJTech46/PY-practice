@@ -70,7 +70,10 @@ with ZipFile(file_name, 'r') as file:
             print(f"Trying the sequence: {password}")
             file.extractall(pwd=bytes(password, 'utf-8'))
             print(f"The password is: {password}")
-            exit()
+            # exit with code 0 means ok
+            exit(0)
         except (RuntimeError, BadZipFile):
             continue
+    #providing a nonzero for representing not success
+    exit(1)
 
